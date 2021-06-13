@@ -16,6 +16,7 @@ jobs:
     name: Test on ${{ matrix.os }} with base64 = ${{ matrix.secret.b64 }}
     runs-on: ${{ matrix.os }}
     steps:
+      - uses: actions/checkout@v2
       - id: secret
         uses: ./
         with:
