@@ -9,7 +9,7 @@ try {
     ? Buffer.from(data, 'base64')
     : Buffer.from(secret);
   const filename = crypto.randomBytes(40).toString('base64');
-  fs.writeFileSync(filename, buff);
+  fs.writeFileSync(filename, decoded);
   core.setOutput('file', filename);
 } catch (error) {
   core.setFailed(error.message);
