@@ -1,0 +1,17 @@
+name: Secret File
+description: Write a secret to a local file during a workflow
+inputs:
+  secret:
+    description: The secret to write to a file
+    required: true
+  b64-decode:
+    description: Indicates whether to base64 decode the secret value
+    required: true
+    default: true
+  outputs:
+    file:
+      description: The file the secret was written to
+runs:
+  using: node14
+  main: index.js
+

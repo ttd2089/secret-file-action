@@ -1,0 +1,28 @@
+on:
+  pull_request:
+    branches:
+      - main:
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        secret:
+          - value: 'Pizza'
+            b64: false
+          - value: 'UGl6emE='
+            b64: true
+    name: Test on ${{ matrix.os }} with base64 = ${{ matrix.secret.b64 }}
+    runs-on: ${{ matrix.os }}
+    steps:
+      - id: secret
+        uses: ./
+        with:
+          secret: ${{ matrix.secret.value }}
+          b64-decode: ${{ matrix.secret.b64 }}
+      - name: Test File Content
+        shell: bash
+        env:
+          FILE: ${{ steps.secret.outputs.file }}
+        run: diff <(echo -n Pizza) $FILE

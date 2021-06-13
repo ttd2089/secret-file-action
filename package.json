@@ -1,0 +1,24 @@
+{
+  "name": "secret-file-action",
+  "version": "1.0.0",
+  "description": "Write a secret to a local file during a workflow",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ttd2089/secret-file-action.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/ttd2089/secret-file-action/issues"
+  },
+  "homepage": "https://github.com/ttd2089/secret-file-action#readme",
+  "dependencies": {
+    "@actions/core": "^1.4.0",
+    "@actions/github": "^5.0.0"
+  }
+}
