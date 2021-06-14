@@ -1,5 +1,8 @@
 name: Secret File
 description: Write a secret to a local file during a workflow
+branding:
+  icon: lock
+  color: purple
 inputs:
   secret:
     description: The secret to write to a file
