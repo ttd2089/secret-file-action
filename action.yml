@@ -15,6 +15,6 @@ inputs:
     file:
       description: The file the secret was written to
 runs:
-  using: node12
+  using: node16
   main: index.js
 
