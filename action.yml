@@ -11,9 +11,9 @@ inputs:
     description: Indicates whether to base64 decode the secret value
     required: true
     default: "true"
-  outputs:
-    file:
-      description: The file the secret was written to
+outputs:
+  file:
+    description: The file the secret was written to
 runs:
   using: node20
   main: index.js
