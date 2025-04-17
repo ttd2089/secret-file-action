@@ -1,0 +1,27 @@
+name: Write Secret to File Example
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  write-file-example:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Write secret to file
+        id: write-file
+        run: |
+          FILE="$(openssl rand -base64 40 | tr '/+' '_-' | tr -d '=')"
+          echo -n "${{ secrets.MY_SECRET }}" | base64 -d | tr -d '\n' > "${FILE}"
+          echo "file=${FILE}" >> "${GITHUB_OUTPUT}"
+
+      - name: Validate file content
+        run: |
+          SHA1=$(sha1sum "${{ steps.write-file.outputs.file }}" | cut -d' ' -f1)
+          if [ "${SHA1}" != "a00e0482565067bc38f0600bdbde1b3da5169112" ]; then
+            echo "::error::SHA-1 hash does not match expected value."
+            exit 1
+          fi
+          echo "SHA-1 hash verification successful."

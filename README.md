@@ -1,5 +1,9 @@
 # Secret File Action
 
+⚠️ DEPRECATED: This action is no longer maintained. Use an inline run step instead. Example: [alternative.yml](./.github/workflows/alternative.yml).
+
+## Description
+
 Write a secret to a local file during a workflow.
 
 ## Inputs
